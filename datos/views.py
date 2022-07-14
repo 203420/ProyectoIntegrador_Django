@@ -7,11 +7,21 @@ from rest_framework import status
 from datos.models import datosModel
 from datos.serializers import datosSerializer
 
-#Para lectura de los sensores
-import serial, time
-
 # Create your views here.
-class datosView(APIView):  
+class datosView(APIView):
+    def get(self, request, format=None):
+        queryset = datosModel.objects.all()
+        serializer = datosSerializer(queryset , many=True, context={'request':request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        serializer = datosSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response( serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class datosViewDetail(APIView):  
     def get_object(self, pk):
         try:
             return datosModel.objects.get(pk=pk)
@@ -24,11 +34,3 @@ class datosView(APIView):
             datos = datosSerializer(datos)
             return Response(datos.data, status=status.HTTP_200_OK)
         return Response("No hay datos", status=status.HTTP_400_BAD_REQUEST)
-
-    def saveData():
-        esp = serial.Serial("COM3", 9600)
-        valores = esp.readline().decode('utf-8').rstrip()            #No se ha probado el funcionamiento
-        datos = valores.split()
-        serializer = datosSerializer(data=datos)
-        if serializer.is_valid():
-            serializer.save()
