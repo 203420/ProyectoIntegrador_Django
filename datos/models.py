@@ -5,10 +5,11 @@ from django.db import models
 
 # Create your models here.
 class datosModel(models.Model):
-    nivelA = models.DecimalField(null=False)
-    humedadS = models.DecimalField(null=False)
-    temperatura = models.DecimalField(null=False)
-    humedad = models.DecimalField(null=False)
+    nivelA = models.CharField(null=False, max_length=10)
+    humedadS = models.CharField(null=False, max_length=10)
+    temperatura = models.CharField(null=False, max_length=10)
+    humedad = models.CharField(null=False, max_length=10)
+    riego = models.CharField(null=False, max_length=10)
     fecha = models.DateTimeField(default=timezone.now)
     
 
