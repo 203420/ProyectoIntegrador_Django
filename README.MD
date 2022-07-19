@@ -24,3 +24,9 @@ pip install -r requirements.txt
 python manage.py createsuperuser
 ```
 
+## Pasos a seguir
+1.Crear usuario
+2.Consumir Login (POST  url/django/login)
+3.Obtener Token
+4.Agregar token a Headers (Authorization/Token token)
+5.Realizar las peticiones deseadas (GET, POST, etc)
