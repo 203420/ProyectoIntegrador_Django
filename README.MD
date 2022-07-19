@@ -4,6 +4,10 @@
 ```bash
 pip install djangorestframework
 ```
+## Instalación de corsheaders
+```bash
+pip install django-cors-headers
+```
 
 ## Agregar la libreria a INSTALLED_APPS en settings
 ```bash
@@ -15,4 +19,8 @@ pip install djangorestframework
 pip install -r requirements.txt
 ```
 
+## Crear usuario: plantita   passwd: proyectito
+```bash
+python manage.py createsuperuser
+```
 

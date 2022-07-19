@@ -10,9 +10,9 @@ class datosSerializer(serializers.ModelSerializer):
 class datosTSerializer(serializers.ModelSerializer):
     class Meta:
         model = datosModel
-        fields = ('temperatura')
+        fields = ('temperatura',)
 
 class datosHSerializer(serializers.ModelSerializer):
     class Meta:
         model = datosModel
-        fields = ('humedadS')
+        fields = ('humedadS',)
