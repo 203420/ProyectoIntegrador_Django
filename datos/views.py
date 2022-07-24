@@ -6,6 +6,7 @@ from rest_framework import status
 #Recursos locales
 from datos.models import datosModel
 from datos.serializers import datosSerializer, datosTSerializer, datosHSerializer
+from proyecto_back.datos.serializers import datosH2Serializer
 
 # Create your views here.
 class datosView(APIView):
@@ -46,4 +47,11 @@ class datosHumView(APIView):
         queryset = datosModel.objects.all()
         serializer = datosHSerializer(queryset , many=True, context={'request':request})
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+class datosHum2View(APIView):
+    def get(self, request, format=None):
+        queryset = datosModel.objects.all()
+        serializer = datosH2Serializer(queryset , many=True, context={'request':request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 

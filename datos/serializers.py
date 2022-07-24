@@ -16,3 +16,8 @@ class datosHSerializer(serializers.ModelSerializer):
     class Meta:
         model = datosModel
         fields = ('humedadS',)
+
+class datosH2Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = datosModel
+        fields = ('humedad',)
