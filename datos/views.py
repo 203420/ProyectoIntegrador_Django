@@ -6,7 +6,7 @@ from rest_framework import status
 #Recursos locales
 from datos.models import datosModel
 from datos.serializers import datosSerializer, datosTSerializer, datosHSerializer
-from proyecto_back.datos.serializers import datosH2Serializer
+from datos.serializers import datosH2Serializer
 
 # Create your views here.
 class datosView(APIView):

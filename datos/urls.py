@@ -2,7 +2,7 @@ from django.urls import path, re_path
 from django.conf.urls import include
 
 from datos.views import datosView, datosViewDetail, datosTempView, datosHumView
-from proyecto_back.datos.views import datosHum2View
+from datos.views import datosHum2View
 
 urlpatterns = [
     re_path(r'^datos/lista$', datosView.as_view()),
