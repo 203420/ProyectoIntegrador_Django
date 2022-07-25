@@ -16,7 +16,7 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include(router.urls)),
     re_path(r'^django/', include('datos.urls')),
     re_path(r'^django/', include('login.urls')),
